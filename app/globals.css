@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #05070A;
+  --foreground: #F8FAFC;
+  --neon-green: #39FF14;
+  --neon-dim: #23a80d;
+  --amber-review: #FF9F1C;
+  --reject-red: #FF3B3B;
+  --muted-gray: #8A94A6;
+  --surface-dark: #090F0C;
+  --surface-border: rgba(57, 255, 20, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #05070A;
+  color: #F8FAFC;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #05070A;
+  color: #F8FAFC;
+  font-family: var(--font-space-mono), monospace;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Headings font */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-orbitron), sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Chamfered (clipped-corner) clip paths */
+.chamfer-sm {
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.chamfer-md {
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.chamfer-lg {
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+}
+
+/* Chamfered border wrappers */
+.chamfer-border-wrapper {
+  position: relative;
+  background: linear-gradient(135deg, rgba(57, 255, 20, 0.5) 0%, rgba(21, 34, 27, 0.2) 50%, rgba(57, 255, 20, 0.3) 100%);
+  padding: 1px;
+}
+
+.chamfer-border-amber {
+  background: linear-gradient(135deg, rgba(255, 159, 28, 0.6) 0%, rgba(35, 25, 15, 0.2) 50%, rgba(255, 159, 28, 0.4) 100%);
+}
+
+.chamfer-border-red {
+  background: linear-gradient(135deg, rgba(255, 59, 59, 0.6) 0%, rgba(35, 15, 15, 0.2) 50%, rgba(255, 59, 59, 0.4) 100%);
+}
+
+/* Focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid #39FF14;
+  outline-offset: 3px;
+  box-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+}
+
+/* Custom space scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #05070A;
+}
+::-webkit-scrollbar-thumb {
+  background: #14281B;
+  border-radius: 3px;
+  border: 1px solid rgba(57, 255, 20, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(57, 255, 20, 0.4);
+}
+
+/* Glowing text effects */
+.text-glow-green {
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.6), 0 0 24px rgba(57, 255, 20, 0.2);
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 12px rgba(255, 159, 28, 0.6);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 12px rgba(255, 59, 59, 0.6);
+}
+
+/* Subtle Sci-Fi grid overlay */
+.sci-fi-grid {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
